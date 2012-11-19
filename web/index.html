@@ -1,0 +1,33 @@
+<html>
+<head>
+  <title>Fridge Monitoring</title>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+  <script type="text/javascript">
+    function updateData() {
+      $.get('data/tempA', function(data) {
+        $('#tempA').html(data);
+      });
+      $.get('data/tempB', function(data) {
+        $('#tempB').html(data);
+      });
+      $.get('data/weight', function(data) {
+        val = parseInt(data);
+        if (val > 300) val = 300;
+        if (val < 15) val = 15;
+        val = Math.round((val - 15) / 320 * 100);
+        $('#weight').html(val);
+      });
+    }
+
+    window.setInterval("updateData();",10000);
+  </script>
+</head>
+<body onload="updateData();">
+<h1>Fridge Monitoring</h1>
+<ul>
+  <li>Freezer = <span id='tempA'>NaN</span>&deg;C</li>
+  <li>Fridge = <span id='tempB'>NaN</span>&deg;C</li>
+  <li>Milk = <span id='weight'>NaN</span>%</li>
+</ul>
+</body>
+</html>
