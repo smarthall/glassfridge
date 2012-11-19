@@ -12,9 +12,9 @@
       });
       $.get('data/weight', function(data) {
         val = parseInt(data);
-        if (val > 300) val = 300;
+        if (val > 450) val = 450;
         if (val < 15) val = 15;
-        val = Math.round((val - 15) / 320 * 100);
+        val = Math.round((val - 15) / 435 * 100);
         $('#weight').html(val);
       });
     }

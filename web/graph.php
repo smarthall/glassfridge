@@ -5,7 +5,7 @@ $draw=0;
 $filename = '/tmp/out' . rand(0,999) . '.png';
 
 $options = array(
-   '--start', '-2h',
+   '--start', '-6h',
    '--no-legend',
    '--width', '640',
    '--height', '480',
